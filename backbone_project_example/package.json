@@ -1,0 +1,20 @@
+{
+  "name": "webpack_example",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./node_modules/webpack/bin/webpack.js && cp ./src/index.html ./www/"
+  },
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "webpack": "~1.13.1",
+    "backbone": "~1.3.3",
+    "jquery": "~3.1.0",
+    "underscore": "~1.8.3",
+    "hogan.js": "~3.0.2",
+    "mustache-loader": "~0.3.1"
+  }
+}

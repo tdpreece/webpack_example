@@ -1,0 +1,14 @@
+{
+  "name": "simple_example",
+  "version": "0.0.0",
+  "description": "",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD",
+  "devDependencies": {
+    "webpack": "~1.13.2"
+  }
+}
