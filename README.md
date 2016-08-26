@@ -43,34 +43,33 @@ file in my browser.
 
 Viewing index.html in a browser simple displays `It works from content.js.`.
 
-
-Created aInclude Javascript files
-
-Created index.html, content.js and entry.js
-
-./node_modules/webpack/bin/webpack.js ./entry.js bundle.js
-
-
 ## Webpack with Backbone
 
+I wanted to create a simple project using [Backbone.js](http://backbonejs.org/) soI installed backbone along with jQuery and Underscore.
+
+```bash
 npm install --save-dev backbone
 npm install --save-dev jquery
 npm install --save-dev underscore
-
-
-Created an index.html file.
-```html
-<html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
-  </body>
-</html>
 ```
 
-Created an index.js file along with a simple backbone view,
+I created a new node project and created directory name `src` for my src files to live in and a directory called `www`, which would contain the files that could be deployed to a web server.  These directories would end up looking like the followng.
+
+```bash
+> $ tree src/ www/
+src/
+├── index.html
+├── index.js
+├── MainView.html
+└── MainView.js
+www/
+├── bundle.js
+└── index.html
+```
+
+I copied the same `index.html` file from the simple example above into the `src` directory.  As you can see the `index.html` doesn't have to do a lot, just refernce the bundle.js.
+
+I created an index.js file that would act as an entry to my application and a Bacbone.js view.
 ```javascript
 // index.js
 var $ = require('jquery');
@@ -132,29 +131,29 @@ and configure it's use in the webpack.config.js,
 ...
 ```
 
-Built the bundle via the command,
-```bash
-./node_modules/webpack/bin/webpack.js ./index.js bundle.js
+I also added some config to the webpack.config.js to help it resolve paths, know the entry to my app and where I'd like my bundle.js file saved to,
+```javascript
+// webpack.config.js
+...
+    context: __dirname + '/src',
+    entry: "./index",
+    output: {
+        path: __dirname + '/www',
+        filename: "bundle.js"
+    },
+...
+```
+The final step was to copy the index.html file from `src/` to `www/` as part of the build.  The easiest way for me to do this (without addding new dependencies was to add a script to do this in the package.json.
+```javascript
+// package.json 
+...
+  "scripts": {
+    "build": "node ./node_modules/webpack/bin/webpack.js && cp ./src/index.html ./www/"
+...
 ```
 
-Then opened the `index.html` file in a browser.
-
-## Move to separate dirs for src and dist,
-
-
+Built the bundle via the command,
 ```bash
 npm run build
 ```
-
-
-TODO:
-- Move out into src dir and add the following to webpack conf
-http://stackoverflow.com/questions/32155154/webpack-config-how-to-just-copy-the-index-html-to-the-dist-folder
-
-- Add something like the following to webpack conf
-    entry: './src/index.js',
-
-    output: {
-        path: './www/',
-        filename: 'bundle.js',
-    },
+Then opened the `www/index.html` file in a browser.
