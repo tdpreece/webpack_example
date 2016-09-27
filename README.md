@@ -161,5 +161,5 @@ Then opened the `www/index.html` file in a browser and could see "This is the Ma
 ## Next steps 
 Other useful things that Webpack can do:
  * [automatically add vendor prefixes for css](https://www.npmjs.com/package/autoprefixer)(e.g. -webkit-full-screen),
- * [Add a source map](https://webpack.github.io/docs/configuration.html#output-devtoolmodulefilenametemplate) 
+ * [add a source map](https://webpack.github.io/docs/configuration.html#output-devtoolmodulefilenametemplate) 
  * https://webpack.github.io/docs/list-of-plugins.html
