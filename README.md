@@ -2,15 +2,15 @@
 
 
 ## Getting started
-First, I pretty much followed Webpack's getting [started tutorial](http://webpack.github.io/docs/tutorials/getting-started/).
+First, I followed Webpack's getting [started tutorial](http://webpack.github.io/docs/tutorials/getting-started/).
 
-I created a new pm project and installed webpack
+I created a new npm project and installed webpack
 ```bash
 npm init
 npm install --save-dev webpack
 ```
 
-I then created two Javascript files to demonstrate how to use Javascript defined in another module.
+I then created two Javascript files to demonstrate how to use Javascript that is defined in another module.
 
 ```Javascript
 // content.js
@@ -45,7 +45,7 @@ Viewing index.html in a browser simple displays `It works from content.js.`.
 
 ## Webpack with Backbone
 
-I wanted to create a simple project using [Backbone.js](http://backbonejs.org/) soI installed backbone along with jQuery and Underscore.
+I wanted to create a simple project using [Backbone.js](http://backbonejs.org/) so I installed backbone along with jQuery and Underscore.
 
 ```bash
 npm install --save-dev backbone
@@ -53,7 +53,7 @@ npm install --save-dev jquery
 npm install --save-dev underscore
 ```
 
-I created a new node project and created directory name `src` for my src files to live in and a directory called `www`, which would contain the files that could be deployed to a web server.  These directories would end up looking like the followng.
+I created a new node project and created directory name `src` for my src files to live in and a directory called `www`, which would contain the files that could be deployed to a web server.  These directories would end up looking like the following.
 
 ```bash
 > $ tree src/ www/
@@ -69,7 +69,7 @@ www/
 
 I copied the same `index.html` file from the simple example above into the `src` directory.  As you can see the `index.html` doesn't have to do a lot, just refernce the bundle.js.
 
-I created an index.js file that would act as an entry to my application and a Bacbone.js view.
+I created an index.js file, which would act as an entry to my application, and a Bacbone.js view.
 ```javascript
 // index.js
 var $ = require('jquery');
@@ -152,8 +152,14 @@ The final step was to copy the index.html file from `src/` to `www/` as part of 
 ...
 ```
 
-Built the bundle via the command,
+I built the bundle via the command,
 ```bash
 npm run build
 ```
-Then opened the `www/index.html` file in a browser.
+Then opened the `www/index.html` file in a browser and could see "This is the Main View".
+
+## Next steps 
+Other useful things that Webpack can do:
+ * [automatically add vendor prefixes for css](https://www.npmjs.com/package/autoprefixer)(e.g. -webkit-full-screen),
+ * [Add a source map](https://webpack.github.io/docs/configuration.html#output-devtoolmodulefilenametemplate) 
+ * https://webpack.github.io/docs/list-of-plugins.html
