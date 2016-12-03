@@ -10,7 +10,8 @@ npm init
 npm install --save-dev webpack
 ```
 
-I then created two Javascript files to demonstrate how to use Javascript that is defined in another module.
+I then created two Javascript files to demonstrate how to use Javascript that
+is defined in another module.
 
 ```Javascript
 // content.js
@@ -45,7 +46,8 @@ Viewing index.html in a browser simple displays `It works from content.js.`.
 
 ## Webpack with Backbone
 
-I wanted to create a simple project using [Backbone.js](http://backbonejs.org/) so I installed backbone along with jQuery and Underscore.
+I wanted to create a simple project using [Backbone.js](http://backbonejs.org/)
+so I installed backbone along with jQuery and Underscore.
 
 ```bash
 npm install --save-dev backbone
@@ -53,7 +55,10 @@ npm install --save-dev jquery
 npm install --save-dev underscore
 ```
 
-I created a new node project and created directory name `src` for my src files to live in and a directory called `www`, which would contain the files that could be deployed to a web server.  These directories would end up looking like the following.
+I created a new node project and created directory name `src` for my src files
+to live in and a directory called `www`, which would contain the files that
+could be deployed to a web server.  These directories would end up looking like
+the following.
 
 ```bash
 > $ tree src/ www/
@@ -67,9 +72,12 @@ www/
 └── index.html
 ```
 
-I copied the same `index.html` file from the simple example above into the `src` directory.  As you can see the `index.html` doesn't have to do a lot, just refernce the bundle.js.
+I copied the same `index.html` file from the simple example above into the `src`
+directory.  As you can see the `index.html` doesn't have to do a lot, just
+reference the bundle.js.
 
-I created an index.js file, which would act as an entry to my application, and a Bacbone.js view.
+I created an index.js file, which would act as an entry to my application, and
+a Backbone.js view.
 ```javascript
 // index.js
 var $ = require('jquery');
@@ -131,7 +139,9 @@ and configure it's use in the webpack.config.js,
 ...
 ```
 
-I also added some config to the webpack.config.js to help it resolve paths, know the entry to my app and where I'd like my bundle.js file saved to,
+I also added some config to the webpack.config.js to help it resolve paths,
+know the entry to my app and where I'd like my bundle.js file saved to,
+
 ```javascript
 // webpack.config.js
 ...
@@ -143,7 +153,9 @@ I also added some config to the webpack.config.js to help it resolve paths, know
     },
 ...
 ```
-The final step was to copy the index.html file from `src/` to `www/` as part of the build.  The easiest way for me to do this (without addding new dependencies was to add a script to do this in the package.json.
+The final step was to copy the index.html file from `src/` to `www/` as part of
+the build.  The easiest way for me to do this (without adding new dependencies
+was to add a script to do this in the package.json.
 ```javascript
 // package.json 
 ...
@@ -156,7 +168,8 @@ I built the bundle via the command,
 ```bash
 npm run build
 ```
-Then opened the `www/index.html` file in a browser and could see "This is the Main View".
+Then opened the `www/index.html` file in a browser and could see
+"This is the Main View".
 
 ## Next steps 
 Other useful things that Webpack can do:
